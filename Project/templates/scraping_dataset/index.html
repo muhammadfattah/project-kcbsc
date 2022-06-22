@@ -1,0 +1,51 @@
+{% extends '../layouts/index.html' %} {% block title %}
+<title>Scraping Dataset</title> {% endblock title %} {% block content %}
+<div class="p-4">
+  <h3 class="font-weight-bold mb-4 text-primary">Scraping Dataset</h3>
+  <section class="content">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-12">
+          <div class="card">
+            <div class="card-header pt-4">
+              <form action="/scraping-dataset" method="POST">
+                {% csrf_token %}
+                <div class="row">
+                  <div class="col-md-3">
+                    <div class="form-group">
+                      <label for="jumlah_data">Jumlah Data</label>
+                      <input
+                        type="number"
+                        class="form-control"
+                        id="jumlah_data"
+                        min="1000"
+                        value="1000"
+                        name="jumlah_data"
+                      />
+                    </div>
+                  </div>
+                  <div class="col-md-2">
+                    <div class="form-group">
+                      <label class="text-white">.</label>
+                      <button
+                        type="submit"
+                        class="btn btn-primary form-control"
+                      >
+                        <i class="fa fa-database fa-fw"></i> Mulai Scraping
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+          <!-- /.card -->
+        </div>
+        <!-- /.col -->
+      </div>
+      <!-- /.row -->
+    </div>
+    <!-- /.container-fluid -->
+  </section>
+</div>
+{% endblock content %}

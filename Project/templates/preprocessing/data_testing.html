@@ -1,0 +1,43 @@
+{% extends '../layouts/index.html' %} {% block title %}
+<title>Data Testing</title> {% endblock title %} {% block content %}
+<div class="p-4">
+  <h3 class="font-weight-bold mb-4 text-primary">Data Testing</h3>
+  <section class="content">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-12">
+          <div class="card">
+            <div class="card-body">
+              <table id="table-data" class="table table-bordered table-hover">
+                <thead>
+                  <tr>
+                    <th>No</th>
+                    <th>Username</th>
+                    <th>Ulasan Setelah Preprocessing</th>
+                    <th>Label</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {% for data in dataTesting %}
+                  <tr>
+                    <td>{{forloop.counter}}</td>
+                    <td>{{data.username}}</td>
+                    <td>{{data.ulasan_setelah_preprocessing}}</td>
+                    <td>{{data.label}}</td>
+                  </tr>
+                  {% endfor %}
+                </tbody>
+              </table>
+            </div>
+            <!-- /.card-body -->
+          </div>
+          <!-- /.card -->
+        </div>
+        <!-- /.col -->
+      </div>
+      <!-- /.row -->
+    </div>
+    <!-- /.container-fluid -->
+  </section>
+</div>
+{% endblock content %}

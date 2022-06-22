@@ -1,0 +1,76 @@
+{% extends '../layouts/index.html' %} {% block title %}
+<title>Dataset</title> {% endblock title %} {% block content %}
+<div class="p-4">
+  <h3 class="font-weight-bold mb-4 text-primary">Dataset</h3>
+  <section class="content">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-12">
+          <div class="card">
+            <div class="card-header pt-4">
+              <form
+                action="/dataset"
+                method="POST"
+                enctype="multipart/form-data"
+              >
+                {% csrf_token %}
+                <div class="row">
+                  <div class="col-md-5">
+                    <div class="form-group">
+                      <div class="input-group">
+                        <div class="custom-file">
+                          <input
+                            type="file"
+                            class="custom-file-input"
+                            id="fileInput"
+                            name="file_dataset"
+                          />
+                          <label class="custom-file-label" for="fileInput"
+                            >Choose file</label
+                          >
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-5">
+                    <button type="submit" class="btn btn-primary">
+                      <i class="fa fa-file-import fa-fw"></i> Upload Dataset
+                    </button>
+                  </div>
+                </div>
+              </form>
+            </div>
+            <div class="card-body">
+              <table id="table-data" class="table table-bordered table-hover">
+                <thead>
+                  <tr>
+                    <th>No</th>
+                    <th>Username</th>
+                    <th>Ulasan</th>
+                    <th>Label</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {% for data in dataset %}
+                  <tr>
+                    <td>{{forloop.counter}}</td>
+                    <td>{{data.username}}</td>
+                    <td>{{data.ulasan}}</td>
+                    <td>{{data.label}}</td>
+                  </tr>
+                  {% endfor %}
+                </tbody>
+              </table>
+            </div>
+            <!-- /.card-body -->
+          </div>
+          <!-- /.card -->
+        </div>
+        <!-- /.col -->
+      </div>
+      <!-- /.row -->
+    </div>
+    <!-- /.container-fluid -->
+  </section>
+</div>
+{% endblock content %}

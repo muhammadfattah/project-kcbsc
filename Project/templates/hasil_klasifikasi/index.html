@@ -1,0 +1,50 @@
+{% extends '../layouts/index.html' %} {% block title %}
+<title>Hasil Klasifikasi</title> {% endblock title %} {% block content %}
+<div class="p-4">
+  <h3 class="font-weight-bold mb-4 text-primary">Hasil Klasifikasi</h3>
+  <section class="content">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-12">
+          <div class="card">
+            <div class="card-header pt-3">
+              <span class="font-weight-bold font-italic"
+                >Akurasi : {{akurasi.skor_akurasi}} %</span
+              >
+            </div>
+            <div class="card-body">
+              <table id="table-data" class="table table-bordered table-hover">
+                <thead>
+                  <tr>
+                    <th>No</th>
+                    <th>Username</th>
+                    <th>Ulasan</th>
+                    <th>Prediksi</th>
+                    <th>Label</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {% for data in hasilKlasifikasi %}
+                  <tr>
+                    <td>{{forloop.counter}}</td>
+                    <td>{{data.username}}</td>
+                    <td>{{data.ulasan}}</td>
+                    <td>{{data.prediksi}}</td>
+                    <td>{{data.label}}</td>
+                  </tr>
+                  {% endfor %}
+                </tbody>
+              </table>
+            </div>
+            <!-- /.card-body -->
+          </div>
+          <!-- /.card -->
+        </div>
+        <!-- /.col -->
+      </div>
+      <!-- /.row -->
+    </div>
+    <!-- /.container-fluid -->
+  </section>
+</div>
+{% endblock content %}

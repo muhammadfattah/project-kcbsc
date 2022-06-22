@@ -1,0 +1,24 @@
+{% extends '../layouts/index.html' %} {% block title %} {% load static %}
+<title>Beranda</title> {% endblock title %} {% block content %}
+<div class="p-4 d-flex justify-content-center align-items-center flex-column">
+  <h4 class="font-weight-bold mb-4 text-uppercase text-center text-primary">
+    Klasifikasi Ulasan Pada Aplikasi TIX ID di Google Play Store <br />
+    Menggunakan Algoritma Support Vector Machine
+  </h4>
+  <img
+    class="img-circle"
+    src="{% static 'dist/img/logo_fasilkom_ti.jpg' %}"
+    width="17%"
+  />
+  <ul class="mt-4 text-justify">
+    <li>Windy Adinda <span class="ml-4 float-right">(191401028)</span></li>
+    <li>Muhammad Fattah <span class="ml-4 float-right">(191401049)</span></li>
+    <li>Aryo Harjosatrio <span class="ml-4 float-right">(191401124)</span></li>
+  </ul>
+  <h4 class="font-weight-bold mt-2 text-uppercase text-center text-primary">
+    Program Studi S1 Ilmu Komputer <br />
+    Universitas Sumatera Utara <br />
+    2022
+  </h4>
+</div>
+{% endblock content %}
